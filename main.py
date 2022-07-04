@@ -8,8 +8,8 @@ root.title("Myta´s Salon")
 
 #lista del personal
 
-personal = ttk.Combobox(state="readonly", values=["Eliezer", "Mariangel", "Mariana", "Peluqueria"])
-personal.place(x=700, y=100)
+personal = ttk.Combobox(state="readonly", values=["Eliezer", "Mariangel", "Mariana", "Peluqueria"], font=40)
+personal.place(x=200, y=100)
 
 #lista de servicios
 servicios = ttk.Combobox(state="readonly", values=["Barberia", "Barberia (Barba)", "Bucles Cabello Largo", "Bucles Cabello Mediano",
@@ -40,9 +40,10 @@ servicios = ttk.Combobox(state="readonly", values=["Barberia", "Barberia (Barba)
 "Retiro de Extenciones",
 "Retiro de Pestanas",
 "Tinte Aplicacion",
-"Tinte Aplicacion Completa", "Trenzas"])
-servicios.config(width=28)
-servicios.place(x=700, y=150)
+"Tinte Aplicacion Completa", "Trenzas"],
+font=40)
+servicios.config(width=20)
+servicios.place(x=200, y=150)
 
 
 # Calculo total Bolivares
@@ -54,19 +55,21 @@ def totalbolivares():
     dolaresefect = float(pago_efect_dolares.get())
     bolivares = float(bolivaresefectivo + bolivarespagomovil + bolivaresptoventa)
     dolares = float(bolivares/valordolar + dolaresefect)
-    monto_total_dolares.config(text=dolares)
-    monto_total_bolivares.config(text=bolivares)
+    bolivaresr = round(bolivares, 2)
+    dolaresr = round(dolares, 2)
+    monto_total_dolares.config(text=dolaresr)
+    monto_total_bolivares.config(text=bolivaresr)
 
 #imagen
 
 imagen = Image.open("C:/Users/dpuli/Documents/Peluqueria/Programs/logo.png")
-imagen = imagen.resize((400,300))
+imagen = imagen.resize((100,50))
 
 #mostrando el logo
 
 log = ImageTk.PhotoImage(imagen)
 lbl_img = Label(root, image = log)
-lbl_img.place(x=50, y=50)
+lbl_img.place(x=5, y=5)
 
 
 # entry points
@@ -75,46 +78,46 @@ lbl_img.place(x=50, y=50)
 # servicio_entry = Entry()
 # servicio_entry.place(x=700, y=150)
 pago_efect_bolivares = StringVar()
-pago_efect_bolivares_entry = Entry(textvariable=pago_efect_bolivares)
-pago_efect_bolivares_entry.place(x=700, y=200)
+pago_efect_bolivares_entry = Entry(textvariable=pago_efect_bolivares, font=40)
+pago_efect_bolivares_entry.place(x=825, y=100)
 pago_pgmovil_bolivares = StringVar()
-pago_pgmovil_bolivares_entry = Entry(textvariable=pago_pgmovil_bolivares)
-pago_pgmovil_bolivares_entry.place(x=700, y=250)
+pago_pgmovil_bolivares_entry = Entry(textvariable=pago_pgmovil_bolivares, font=40)
+pago_pgmovil_bolivares_entry.place(x=825, y=150)
 pago_ptventas_bolivares = StringVar()
-pago_ptventas_bolivares_entry = Entry(textvariable=pago_ptventas_bolivares)
-pago_ptventas_bolivares_entry.place(x=700, y=300)
+pago_ptventas_bolivares_entry = Entry(textvariable=pago_ptventas_bolivares, font=40)
+pago_ptventas_bolivares_entry.place(x=825, y=200)
 pago_efect_dolares = StringVar()
-pago_efect_dolares_entry = Entry(textvariable=pago_efect_dolares)
-pago_efect_dolares_entry.place(x=700, y=350)
+pago_efect_dolares_entry = Entry(textvariable=pago_efect_dolares, font=40)
+pago_efect_dolares_entry.place(x=825, y=250)
 valor_dolar = StringVar()
-valor_dolar_entry = Entry(textvariable=valor_dolar)
+valor_dolar_entry = Entry(textvariable=valor_dolar, font=40)
 valor_dolar_entry.place(x=700, y=600)
 
 # labels
-personal_label = Label(text="Personal")
-personal_label.place(x=500, y=100)
-servicio_label = Label(text="Servicio")
-servicio_label.place(x=500, y=150)
-pago_efect_bolivares_label = Label(text="Pago en efectivo Bolivares")
-pago_efect_bolivares_label.place(x=500, y=200)
-pago_pgmovil_bolivares_label = Label(text="Pago Movil en Bolivares")
-pago_pgmovil_bolivares_label.place(x=500, y=250)
-pago_ptventas_bolivares_label = Label(text="Pago Punto de ventas en Bolivares")
-pago_ptventas_bolivares_label.place(x=500, y=300)
-pago_efect_dolares_label = Label(text="Pago Efectivo Dolares")
-pago_efect_dolares_label.place(x=500, y=350)
-monto_total_bolivares_label = Label(text="Monto Total Bolivares")
-monto_total_bolivares_label.place(x=500, y=400)
-monto_total_bolivares = Label()
-monto_total_bolivares.place(x=700, y=400)
-monto_total_dolares_label = Label(text="Monto Total Dolares")
-monto_total_dolares_label.place(x=500, y=450)
-monto_total_dolares = Label()
-monto_total_dolares.place(x=700, y=450)
-vuelto_bolivares_label = Label(text="Vuelto Bolivares")
-vuelto_bolivares_label.place(x=500, y=500)
-vuelto_dolares_label = Label(text="Vuelto Dolares")
-vuelto_dolares_label.place(x=500, y=550)
+personal_label = Label(text="Personal", font=40)
+personal_label.place(x=100, y=100)
+servicio_label = Label(text="Servicio", font=40)
+servicio_label.place(x=100, y=150)
+pago_efect_bolivares_label = Label(text="Pago en efectivo Bolivares", font=40)
+pago_efect_bolivares_label.place(x=500, y=100)
+pago_pgmovil_bolivares_label = Label(text="Pago Movil en Bolivares", font=40)
+pago_pgmovil_bolivares_label.place(x=500, y=150)
+pago_ptventas_bolivares_label = Label(text="Pago Punto de ventas en Bolivares", font=40)
+pago_ptventas_bolivares_label.place(x=500, y=200)
+pago_efect_dolares_label = Label(text="Pago Efectivo Dolares", font=40)
+pago_efect_dolares_label.place(x=500, y=250)
+monto_total_bolivares_label = Label(text="Monto Total Bolivares", font=40)
+monto_total_bolivares_label.place(x=500, y=300)
+monto_total_bolivares = Label(font=40)
+monto_total_bolivares.place(x=825, y=300)
+monto_total_dolares_label = Label(text="Monto Total Dolares", font=40)
+monto_total_dolares_label.place(x=500, y=350)
+monto_total_dolares = Label(font=40)
+monto_total_dolares.place(x=825, y=350)
+vuelto_bolivares_label = Label(text="Vuelto Bolivares", font=40)
+vuelto_bolivares_label.place(x=500, y=400)
+vuelto_dolares_label = Label(text="Vuelto Dolares", font=40)
+vuelto_dolares_label.place(x=500, y=450)
 valor_dolar_label = Label(text="Cotizacion del Dolar")
 valor_dolar_label.place(x=500, y=600)
 
