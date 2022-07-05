@@ -1,6 +1,7 @@
 from tkinter import *
 from PIL import ImageTk, Image
 from tkinter import ttk
+import datetime as dt
 
 root = Tk()
 root.geometry("1200x900")
@@ -45,6 +46,10 @@ font=40)
 servicios.config(width=20)
 servicios.place(x=200, y=150)
 
+# mostrando la fecha
+fecha = dt.datetime.now()
+fecha = Label(root, text=f"{fecha:%A, %B, %d, %Y}", font=40)
+fecha.place(x=100, y=500)
 
 # Calculo total Bolivares
 def totalbolivares():
